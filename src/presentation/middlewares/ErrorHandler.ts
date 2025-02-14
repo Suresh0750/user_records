@@ -22,6 +22,6 @@ export const errorHandler = (err: AppError, req: Request, res: Response, next: N
     res.status(err.statusCode).json({
         success: false,
         message: err.message,
-        statusCode: err.statusCode
+        statusCode: err.statusCode || HttpStatus.InternalServerError
     });
 };

@@ -32,7 +32,7 @@ const userSchema = new Schema(
       enum: ["user", "admin"],
     },
   },
-  { timestamps: true, _id:false,versionKey: false }
+  { timestamps: true,versionKey: false }
 );
 
 export default model<UserDocuments>("User", userSchema, "users");

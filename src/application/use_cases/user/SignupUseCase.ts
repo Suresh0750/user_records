@@ -40,7 +40,7 @@ export default class SignupUseCase {
             password : hashPassword,
             role : signupDTO.role
         }
-    
+       
         return await this.userRepository.create(user);;
     }
     

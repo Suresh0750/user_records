@@ -1,16 +1,16 @@
 
 import {connect} from 'mongoose'
 import {MONGOSH_URL} from '../../config/env'
+import { AppError } from '@/presentation/middlewares/ErrorHandler';
+import { HttpStatus } from '@/shared/HttpStatusCode';
 
 
 const connectDB = async()=>{
     try {
-        connect(MONGOSH_URL())
+        await connect(MONGOSH_URL())
+        console.log(`database connected successfully`)
     } catch (error:unknown) {
-        if(error instanceof Error){
-            throw new Error(error.message);
-        }
-        throw new Error("Unknown error occurred during DB connection")
+        throw new AppError("Unknown error occurred during DB connection",HttpStatus.InternalServerError)
     }
 }
 
