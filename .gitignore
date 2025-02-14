@@ -1,12 +1,20 @@
+# Node.js dependencies
+node_modules/
 
-node_modules
-./.env
-./dist
-./package-lock.json
-
-node_modules
-
+# Environment variables
 .env
 
+# Build output
 dist/
+
+# Package lock file
 package-lock.json
+
+# Logs
+logs/
+*.log
+
+# IDE/editor specific files
+.vscode/
+.idea/
+.DS_Store

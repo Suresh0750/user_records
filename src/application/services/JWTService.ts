@@ -2,7 +2,7 @@
 import jwt, { JwtPayload, Secret, TokenExpiredError } from 'jsonwebtoken'
 import { JWT_SECRET_KEY } from '@/config/env'
 import {ITokenService} from '@/domain/interface/services/IToken'
-import { AuthenticationError, AuthorizationError } from '@/domain/entities/CustomeError'
+import { AuthenticationError, AuthorizationError } from '@/domain/entities/CustomErrors'
 
 
 export default class JWTService implements ITokenService{

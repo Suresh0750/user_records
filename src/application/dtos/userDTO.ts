@@ -1,4 +1,4 @@
-import { ValidationError } from "@/domain/entities/CustomeError";
+import { ValidationError } from "@/domain/entities/CustomErrors";
 
 // * DTO - (Data Transfer Object)
 export class SignupDTO{
