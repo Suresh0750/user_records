@@ -3,7 +3,7 @@ import { IBcrypt } from "@/domain/interface/services/IBcrypt";
 import { IUserRepository } from "@/domain/interface/repositories/IUserRepository";
 
 
-export  class LoginUsecase{
+export default class LoginUsecase{
     constructor(private userRepository:IUserRepository,private bcrptService : IBcrypt){}
     // * login usecase
     async execute(data:{userID:string,password:string}):Promise<boolean>{

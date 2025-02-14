@@ -1,5 +1,5 @@
 
-
+// * DTO - (Data Transfer Object)
 export class SignupDTO{
     readonly userName: string;
     readonly emailID: string;
@@ -11,4 +11,13 @@ export class SignupDTO{
         this.password = password,
         this.role = role
     }   
+}
+
+export class LoginDTO{
+    readonly userID : string;
+    readonly password : string;
+    constructor(userID:string,password:string){
+        this.userID = userID;
+        this.password = password
+    }
 }

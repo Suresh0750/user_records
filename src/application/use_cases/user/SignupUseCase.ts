@@ -2,21 +2,22 @@ import { SignupDTO } from "@/application/dtos/userDTO";
 import { IUser } from "@/domain/entities/IUser";
 import { IUserRepository } from "@/domain/interface/repositories/IUserRepository";
 import { IBcrypt } from "@/domain/interface/services/IBcrypt";
-import bcrypt from 'bcrypt';
+import { GENERATE_UNIQUE_ID_KEY } from "@/shared/constants";
 
-export class SignupUseCase {
+
+export default class SignupUseCase {
     constructor(private userRepository: IUserRepository,private bcrptService:IBcrypt) {}
-
+    
     private async generateUniqueUserID(): Promise<string> {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let userID: string;
+       
+        let userID: string = '';
         let isUnique = false;
 
         while (!isUnique) {
             userID = '';
             for (let i = 0; i < 5; i++) {
-                userID += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
+                userID += GENERATE_UNIQUE_ID_KEY.charAt(Math.floor(Math.random() * GENERATE_UNIQUE_ID_KEY.length));
+            }   
             
             const existingUser = await this.userRepository.findByUserID({userID});
             if (!existingUser) {
@@ -39,7 +40,6 @@ export class SignupUseCase {
             password : hashPassword,
             role : signupDTO.role
         }
-
     
         return await this.userRepository.create(user);;
     }
